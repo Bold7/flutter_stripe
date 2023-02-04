@@ -310,13 +310,23 @@ enum PaymentMethodType {
   Upi,
   USBankAccount,
   // WeChatPay,
-  Unknown
+  Unknown,
+  Promptpay,
 }
 
 @Freezed(unionKey: 'paymentMethodType')
 
 /// Parameters that specify the desired configuration of a specific payment method.
 class PaymentMethodParams with _$PaymentMethodParams {
+  @JsonSerializable(explicitToJson: true)
+  @FreezedUnionValue('Promptpay')
+
+  /// Config parameters for card payment method.
+  const factory PaymentMethodParams.promptpay({
+    /// Paymentmethod data for this paymentmethod.
+    required PaymentMethodData paymentMethodData,
+  }) = _PaymentMethodParamsPromptpay;
+
   @JsonSerializable(explicitToJson: true)
   @FreezedUnionValue('Card')
 
@@ -540,6 +550,26 @@ class PaymentMethodDataCardFromToken with _$PaymentMethodDataCardFromToken {
 
   factory PaymentMethodDataCardFromToken.fromJson(Map<String, dynamic> json) =>
       _$PaymentMethodDataCardFromTokenFromJson(json);
+}
+
+@freezed
+
+/// Payment method data object for card with token payment method.
+class PaymentMethodDataPromptpay with _$PaymentMethodDataPromptpay {
+  @JsonSerializable(explicitToJson: true)
+  const factory PaymentMethodDataPromptpay({
+    /// Token.
+    required String token,
+
+    /// Billing information.
+    BillingDetails? billingDetails,
+
+    /// Shipping details
+    ShippingDetails? shippingDetails,
+  }) = _PaymentMethodDataPromptpay;
+
+  factory PaymentMethodDataPromptpay.fromJson(Map<String, dynamic> json) =>
+      _$PaymentMethodDataPromptpayFromJson(json);
 }
 
 @freezed

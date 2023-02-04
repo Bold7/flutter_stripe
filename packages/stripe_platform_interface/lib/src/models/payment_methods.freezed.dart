@@ -2805,6 +2805,8 @@ abstract class _UsBankAccount implements UsBankAccount {
 
 PaymentMethodParams _$PaymentMethodParamsFromJson(Map<String, dynamic> json) {
   switch (json['paymentMethodType']) {
+    case 'Promptpay':
+      return _PaymentMethodParamsPromptpay.fromJson(json);
     case 'Card':
       return _PaymentMethodParamsCard.fromJson(json);
     case 'Card':
@@ -2861,6 +2863,7 @@ mixin _$PaymentMethodParams {
   Object get paymentMethodData => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -2890,6 +2893,7 @@ mixin _$PaymentMethodParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -2917,6 +2921,7 @@ mixin _$PaymentMethodParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -2945,6 +2950,7 @@ mixin _$PaymentMethodParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -2973,6 +2979,7 @@ mixin _$PaymentMethodParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -2999,6 +3006,7 @@ mixin _$PaymentMethodParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -3043,6 +3051,313 @@ class _$PaymentMethodParamsCopyWithImpl<$Res, $Val extends PaymentMethodParams>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_PaymentMethodParamsPromptpayCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsPromptpayCopyWith(
+          _$_PaymentMethodParamsPromptpay value,
+          $Res Function(_$_PaymentMethodParamsPromptpay) then) =
+      __$$_PaymentMethodParamsPromptpayCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PaymentMethodData paymentMethodData});
+
+  $PaymentMethodDataCopyWith<$Res> get paymentMethodData;
+}
+
+/// @nodoc
+class __$$_PaymentMethodParamsPromptpayCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res,
+        _$_PaymentMethodParamsPromptpay>
+    implements _$$_PaymentMethodParamsPromptpayCopyWith<$Res> {
+  __$$_PaymentMethodParamsPromptpayCopyWithImpl(
+      _$_PaymentMethodParamsPromptpay _value,
+      $Res Function(_$_PaymentMethodParamsPromptpay) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? paymentMethodData = null,
+  }) {
+    return _then(_$_PaymentMethodParamsPromptpay(
+      paymentMethodData: null == paymentMethodData
+          ? _value.paymentMethodData
+          : paymentMethodData // ignore: cast_nullable_to_non_nullable
+              as PaymentMethodData,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaymentMethodDataCopyWith<$Res> get paymentMethodData {
+    return $PaymentMethodDataCopyWith<$Res>(_value.paymentMethodData, (value) {
+      return _then(_value.copyWith(paymentMethodData: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_PaymentMethodParamsPromptpay implements _PaymentMethodParamsPromptpay {
+  const _$_PaymentMethodParamsPromptpay(
+      {required this.paymentMethodData, final String? $type})
+      : $type = $type ?? 'Promptpay';
+
+  factory _$_PaymentMethodParamsPromptpay.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsPromptpayFromJson(json);
+
+  /// Paymentmethod data for this paymentmethod.
+  @override
+  final PaymentMethodData paymentMethodData;
+
+  @JsonKey(name: 'paymentMethodType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'PaymentMethodParams.promptpay(paymentMethodData: $paymentMethodData)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PaymentMethodParamsPromptpay &&
+            (identical(other.paymentMethodData, paymentMethodData) ||
+                other.paymentMethodData == paymentMethodData));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, paymentMethodData);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PaymentMethodParamsPromptpayCopyWith<_$_PaymentMethodParamsPromptpay>
+      get copyWith => __$$_PaymentMethodParamsPromptpayCopyWithImpl<
+          _$_PaymentMethodParamsPromptpay>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
+    required TResult Function(PaymentMethodData paymentMethodData) card,
+    required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
+        cardFromToken,
+    required TResult Function(PaymentMethodDataCardFromMethod paymentMethodData)
+        cardFromMethodId,
+    required TResult Function(PaymentMethodData paymentMethodData) alipay,
+    required TResult Function(PaymentMethodDataIdeal paymentMethodData) ideal,
+    required TResult Function(PaymentMethodDataAubecs paymentMethodData) aubecs,
+    required TResult Function(PaymentMethodData paymentMethodData) bancontact,
+    required TResult Function(PaymentMethodData paymentMethodData) giroPay,
+    required TResult Function(PaymentMethodData paymentMethodData) eps,
+    required TResult Function(PaymentMethodData paymentMethodData) affirm,
+    required TResult Function(PaymentMethodData paymentMethodData) grabPay,
+    required TResult Function(PaymentMethodData paymentMethodData) p24,
+    required TResult Function(PaymentMethodDataFpx paymentMethodData) fpx,
+    required TResult Function(PaymentMethodDataSepa paymentMethodData)
+        sepaDebit,
+    required TResult Function(PaymentMethodDataSofort paymentMethodData) sofort,
+    required TResult Function(PaymentMethodDataAfterPay paymentMethodData)
+        afterpayClearpay,
+    required TResult Function(PaymentMethodData paymentMethodData) oxxo,
+    required TResult Function(PaymentMethodData paymentMethodData) klarna,
+    required TResult Function(PaymentMethodData paymentMethodData) payPal,
+    required TResult Function(PaymentMethodDataUsBank paymentMethodData)
+        usBankAccount,
+  }) {
+    return promptpay(paymentMethodData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
+    TResult? Function(PaymentMethodData paymentMethodData)? card,
+    TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
+        cardFromToken,
+    TResult? Function(PaymentMethodDataCardFromMethod paymentMethodData)?
+        cardFromMethodId,
+    TResult? Function(PaymentMethodData paymentMethodData)? alipay,
+    TResult? Function(PaymentMethodDataIdeal paymentMethodData)? ideal,
+    TResult? Function(PaymentMethodDataAubecs paymentMethodData)? aubecs,
+    TResult? Function(PaymentMethodData paymentMethodData)? bancontact,
+    TResult? Function(PaymentMethodData paymentMethodData)? giroPay,
+    TResult? Function(PaymentMethodData paymentMethodData)? eps,
+    TResult? Function(PaymentMethodData paymentMethodData)? affirm,
+    TResult? Function(PaymentMethodData paymentMethodData)? grabPay,
+    TResult? Function(PaymentMethodData paymentMethodData)? p24,
+    TResult? Function(PaymentMethodDataFpx paymentMethodData)? fpx,
+    TResult? Function(PaymentMethodDataSepa paymentMethodData)? sepaDebit,
+    TResult? Function(PaymentMethodDataSofort paymentMethodData)? sofort,
+    TResult? Function(PaymentMethodDataAfterPay paymentMethodData)?
+        afterpayClearpay,
+    TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
+    TResult? Function(PaymentMethodData paymentMethodData)? klarna,
+    TResult? Function(PaymentMethodData paymentMethodData)? payPal,
+    TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
+  }) {
+    return promptpay?.call(paymentMethodData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
+    TResult Function(PaymentMethodData paymentMethodData)? card,
+    TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
+        cardFromToken,
+    TResult Function(PaymentMethodDataCardFromMethod paymentMethodData)?
+        cardFromMethodId,
+    TResult Function(PaymentMethodData paymentMethodData)? alipay,
+    TResult Function(PaymentMethodDataIdeal paymentMethodData)? ideal,
+    TResult Function(PaymentMethodDataAubecs paymentMethodData)? aubecs,
+    TResult Function(PaymentMethodData paymentMethodData)? bancontact,
+    TResult Function(PaymentMethodData paymentMethodData)? giroPay,
+    TResult Function(PaymentMethodData paymentMethodData)? eps,
+    TResult Function(PaymentMethodData paymentMethodData)? affirm,
+    TResult Function(PaymentMethodData paymentMethodData)? grabPay,
+    TResult Function(PaymentMethodData paymentMethodData)? p24,
+    TResult Function(PaymentMethodDataFpx paymentMethodData)? fpx,
+    TResult Function(PaymentMethodDataSepa paymentMethodData)? sepaDebit,
+    TResult Function(PaymentMethodDataSofort paymentMethodData)? sofort,
+    TResult Function(PaymentMethodDataAfterPay paymentMethodData)?
+        afterpayClearpay,
+    TResult Function(PaymentMethodData paymentMethodData)? oxxo,
+    TResult Function(PaymentMethodData paymentMethodData)? klarna,
+    TResult Function(PaymentMethodData paymentMethodData)? payPal,
+    TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
+    required TResult orElse(),
+  }) {
+    if (promptpay != null) {
+      return promptpay(paymentMethodData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
+    required TResult Function(_PaymentMethodParamsCard value) card,
+    required TResult Function(_PaymentMethodParamsCardWithToken value)
+        cardFromToken,
+    required TResult Function(_PaymentMethodParamsCardWithMethodId value)
+        cardFromMethodId,
+    required TResult Function(_PaymentMethodParamsAlipay value) alipay,
+    required TResult Function(_PaymentMethodParamsIdeal value) ideal,
+    required TResult Function(_PaymentMethodParamsAubecs value) aubecs,
+    required TResult Function(_PaymentMethodParamsBankContact value) bancontact,
+    required TResult Function(_PaymentMethodParamsGiroPay value) giroPay,
+    required TResult Function(_PaymentMethodParamsEps value) eps,
+    required TResult Function(_PaymentMethodParamsAffirm value) affirm,
+    required TResult Function(_PaymentMethodParamsPay value) grabPay,
+    required TResult Function(_PaymentMethodParamsP24 value) p24,
+    required TResult Function(_PaymentMethodParamsFpx value) fpx,
+    required TResult Function(_PaymentMethodParamsSepaDebit value) sepaDebit,
+    required TResult Function(_PaymentMethodParamsSofort value) sofort,
+    required TResult Function(_PaymentMethodParamsAfterpayClearpay value)
+        afterpayClearpay,
+    required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
+    required TResult Function(_PaymentMethodParamsKlarna value) klarna,
+    required TResult Function(_PaymentMethodParamsPayPal value) payPal,
+    required TResult Function(_PaymentMethodParamsUsBankAccount value)
+        usBankAccount,
+  }) {
+    return promptpay(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
+    TResult? Function(_PaymentMethodParamsCard value)? card,
+    TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
+    TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
+        cardFromMethodId,
+    TResult? Function(_PaymentMethodParamsAlipay value)? alipay,
+    TResult? Function(_PaymentMethodParamsIdeal value)? ideal,
+    TResult? Function(_PaymentMethodParamsAubecs value)? aubecs,
+    TResult? Function(_PaymentMethodParamsBankContact value)? bancontact,
+    TResult? Function(_PaymentMethodParamsGiroPay value)? giroPay,
+    TResult? Function(_PaymentMethodParamsEps value)? eps,
+    TResult? Function(_PaymentMethodParamsAffirm value)? affirm,
+    TResult? Function(_PaymentMethodParamsPay value)? grabPay,
+    TResult? Function(_PaymentMethodParamsP24 value)? p24,
+    TResult? Function(_PaymentMethodParamsFpx value)? fpx,
+    TResult? Function(_PaymentMethodParamsSepaDebit value)? sepaDebit,
+    TResult? Function(_PaymentMethodParamsSofort value)? sofort,
+    TResult? Function(_PaymentMethodParamsAfterpayClearpay value)?
+        afterpayClearpay,
+    TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
+    TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
+    TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
+    TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
+  }) {
+    return promptpay?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
+    TResult Function(_PaymentMethodParamsCard value)? card,
+    TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
+    TResult Function(_PaymentMethodParamsCardWithMethodId value)?
+        cardFromMethodId,
+    TResult Function(_PaymentMethodParamsAlipay value)? alipay,
+    TResult Function(_PaymentMethodParamsIdeal value)? ideal,
+    TResult Function(_PaymentMethodParamsAubecs value)? aubecs,
+    TResult Function(_PaymentMethodParamsBankContact value)? bancontact,
+    TResult Function(_PaymentMethodParamsGiroPay value)? giroPay,
+    TResult Function(_PaymentMethodParamsEps value)? eps,
+    TResult Function(_PaymentMethodParamsAffirm value)? affirm,
+    TResult Function(_PaymentMethodParamsPay value)? grabPay,
+    TResult Function(_PaymentMethodParamsP24 value)? p24,
+    TResult Function(_PaymentMethodParamsFpx value)? fpx,
+    TResult Function(_PaymentMethodParamsSepaDebit value)? sepaDebit,
+    TResult Function(_PaymentMethodParamsSofort value)? sofort,
+    TResult Function(_PaymentMethodParamsAfterpayClearpay value)?
+        afterpayClearpay,
+    TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
+    TResult Function(_PaymentMethodParamsKlarna value)? klarna,
+    TResult Function(_PaymentMethodParamsPayPal value)? payPal,
+    TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
+    required TResult orElse(),
+  }) {
+    if (promptpay != null) {
+      return promptpay(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PaymentMethodParamsPromptpayToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PaymentMethodParamsPromptpay implements PaymentMethodParams {
+  const factory _PaymentMethodParamsPromptpay(
+          {required final PaymentMethodData paymentMethodData}) =
+      _$_PaymentMethodParamsPromptpay;
+
+  factory _PaymentMethodParamsPromptpay.fromJson(Map<String, dynamic> json) =
+      _$_PaymentMethodParamsPromptpay.fromJson;
+
+  @override
+
+  /// Paymentmethod data for this paymentmethod.
+  PaymentMethodData get paymentMethodData;
+  @JsonKey(ignore: true)
+  _$$_PaymentMethodParamsPromptpayCopyWith<_$_PaymentMethodParamsPromptpay>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3133,6 +3448,7 @@ class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -3165,6 +3481,7 @@ class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -3195,6 +3512,7 @@ class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -3229,6 +3547,7 @@ class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -3260,6 +3579,7 @@ class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -3289,6 +3609,7 @@ class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -3438,6 +3759,7 @@ class _$_PaymentMethodParamsCardWithToken
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -3470,6 +3792,7 @@ class _$_PaymentMethodParamsCardWithToken
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -3500,6 +3823,7 @@ class _$_PaymentMethodParamsCardWithToken
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -3534,6 +3858,7 @@ class _$_PaymentMethodParamsCardWithToken
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -3565,6 +3890,7 @@ class _$_PaymentMethodParamsCardWithToken
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -3594,6 +3920,7 @@ class _$_PaymentMethodParamsCardWithToken
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -3745,6 +4072,7 @@ class _$_PaymentMethodParamsCardWithMethodId
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -3777,6 +4105,7 @@ class _$_PaymentMethodParamsCardWithMethodId
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -3807,6 +4136,7 @@ class _$_PaymentMethodParamsCardWithMethodId
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -3841,6 +4171,7 @@ class _$_PaymentMethodParamsCardWithMethodId
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -3872,6 +4203,7 @@ class _$_PaymentMethodParamsCardWithMethodId
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -3901,6 +4233,7 @@ class _$_PaymentMethodParamsCardWithMethodId
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4049,6 +4382,7 @@ class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -4081,6 +4415,7 @@ class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -4111,6 +4446,7 @@ class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -4145,6 +4481,7 @@ class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -4176,6 +4513,7 @@ class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4205,6 +4543,7 @@ class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4349,6 +4688,7 @@ class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -4381,6 +4721,7 @@ class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -4411,6 +4752,7 @@ class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -4445,6 +4787,7 @@ class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -4476,6 +4819,7 @@ class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4505,6 +4849,7 @@ class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4651,6 +4996,7 @@ class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -4683,6 +5029,7 @@ class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -4713,6 +5060,7 @@ class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -4747,6 +5095,7 @@ class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -4778,6 +5127,7 @@ class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4807,6 +5157,7 @@ class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -4954,6 +5305,7 @@ class _$_PaymentMethodParamsBankContact
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -4986,6 +5338,7 @@ class _$_PaymentMethodParamsBankContact
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5016,6 +5369,7 @@ class _$_PaymentMethodParamsBankContact
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5050,6 +5404,7 @@ class _$_PaymentMethodParamsBankContact
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -5081,6 +5436,7 @@ class _$_PaymentMethodParamsBankContact
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -5110,6 +5466,7 @@ class _$_PaymentMethodParamsBankContact
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -5255,6 +5612,7 @@ class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -5287,6 +5645,7 @@ class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5317,6 +5676,7 @@ class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5351,6 +5711,7 @@ class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -5382,6 +5743,7 @@ class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -5411,6 +5773,7 @@ class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -5553,6 +5916,7 @@ class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -5585,6 +5949,7 @@ class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5615,6 +5980,7 @@ class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5649,6 +6015,7 @@ class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -5680,6 +6047,7 @@ class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -5709,6 +6077,7 @@ class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -5854,6 +6223,7 @@ class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -5886,6 +6256,7 @@ class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5916,6 +6287,7 @@ class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -5950,6 +6322,7 @@ class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -5981,6 +6354,7 @@ class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6010,6 +6384,7 @@ class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6152,6 +6527,7 @@ class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -6184,6 +6560,7 @@ class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -6214,6 +6591,7 @@ class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -6248,6 +6626,7 @@ class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -6279,6 +6658,7 @@ class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6308,6 +6688,7 @@ class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6450,6 +6831,7 @@ class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -6482,6 +6864,7 @@ class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -6512,6 +6895,7 @@ class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -6546,6 +6930,7 @@ class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -6577,6 +6962,7 @@ class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6606,6 +6992,7 @@ class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6749,6 +7136,7 @@ class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -6781,6 +7169,7 @@ class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -6811,6 +7200,7 @@ class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -6845,6 +7235,7 @@ class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -6876,6 +7267,7 @@ class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -6905,6 +7297,7 @@ class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7051,6 +7444,7 @@ class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -7083,6 +7477,7 @@ class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -7113,6 +7508,7 @@ class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -7147,6 +7543,7 @@ class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -7178,6 +7575,7 @@ class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7207,6 +7605,7 @@ class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7352,6 +7751,7 @@ class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -7384,6 +7784,7 @@ class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -7414,6 +7815,7 @@ class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -7448,6 +7850,7 @@ class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -7479,6 +7882,7 @@ class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7508,6 +7912,7 @@ class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7654,6 +8059,7 @@ class _$_PaymentMethodParamsAfterpayClearpay
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -7686,6 +8092,7 @@ class _$_PaymentMethodParamsAfterpayClearpay
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -7716,6 +8123,7 @@ class _$_PaymentMethodParamsAfterpayClearpay
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -7750,6 +8158,7 @@ class _$_PaymentMethodParamsAfterpayClearpay
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -7781,6 +8190,7 @@ class _$_PaymentMethodParamsAfterpayClearpay
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7810,6 +8220,7 @@ class _$_PaymentMethodParamsAfterpayClearpay
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -7954,6 +8365,7 @@ class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -7986,6 +8398,7 @@ class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8016,6 +8429,7 @@ class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8050,6 +8464,7 @@ class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -8081,6 +8496,7 @@ class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -8110,6 +8526,7 @@ class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -8258,6 +8675,7 @@ class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -8290,6 +8708,7 @@ class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8320,6 +8739,7 @@ class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8354,6 +8774,7 @@ class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -8385,6 +8806,7 @@ class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -8414,6 +8836,7 @@ class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -8565,6 +8988,7 @@ class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -8597,6 +9021,7 @@ class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8627,6 +9052,7 @@ class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8661,6 +9087,7 @@ class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -8692,6 +9119,7 @@ class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -8721,6 +9149,7 @@ class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -8873,6 +9302,7 @@ class _$_PaymentMethodParamsUsBankAccount
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(PaymentMethodData paymentMethodData) promptpay,
     required TResult Function(PaymentMethodData paymentMethodData) card,
     required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
         cardFromToken,
@@ -8905,6 +9335,7 @@ class _$_PaymentMethodParamsUsBankAccount
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult? Function(PaymentMethodData paymentMethodData)? card,
     TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8935,6 +9366,7 @@ class _$_PaymentMethodParamsUsBankAccount
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaymentMethodData paymentMethodData)? promptpay,
     TResult Function(PaymentMethodData paymentMethodData)? card,
     TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
         cardFromToken,
@@ -8969,6 +9401,7 @@ class _$_PaymentMethodParamsUsBankAccount
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_PaymentMethodParamsPromptpay value) promptpay,
     required TResult Function(_PaymentMethodParamsCard value) card,
     required TResult Function(_PaymentMethodParamsCardWithToken value)
         cardFromToken,
@@ -9000,6 +9433,7 @@ class _$_PaymentMethodParamsUsBankAccount
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult? Function(_PaymentMethodParamsCard value)? card,
     TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -9029,6 +9463,7 @@ class _$_PaymentMethodParamsUsBankAccount
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PaymentMethodParamsPromptpay value)? promptpay,
     TResult Function(_PaymentMethodParamsCard value)? card,
     TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
     TResult Function(_PaymentMethodParamsCardWithMethodId value)?
@@ -9525,6 +9960,244 @@ abstract class _PaymentMethodDataCardFromToken
   @override
   @JsonKey(ignore: true)
   _$$_PaymentMethodDataCardFromTokenCopyWith<_$_PaymentMethodDataCardFromToken>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+PaymentMethodDataPromptpay _$PaymentMethodDataPromptpayFromJson(
+    Map<String, dynamic> json) {
+  return _PaymentMethodDataPromptpay.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PaymentMethodDataPromptpay {
+  /// Token.
+  String get token => throw _privateConstructorUsedError;
+
+  /// Billing information.
+  BillingDetails? get billingDetails => throw _privateConstructorUsedError;
+
+  /// Shipping details
+  ShippingDetails? get shippingDetails => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PaymentMethodDataPromptpayCopyWith<PaymentMethodDataPromptpay>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PaymentMethodDataPromptpayCopyWith<$Res> {
+  factory $PaymentMethodDataPromptpayCopyWith(PaymentMethodDataPromptpay value,
+          $Res Function(PaymentMethodDataPromptpay) then) =
+      _$PaymentMethodDataPromptpayCopyWithImpl<$Res,
+          PaymentMethodDataPromptpay>;
+  @useResult
+  $Res call(
+      {String token,
+      BillingDetails? billingDetails,
+      ShippingDetails? shippingDetails});
+
+  $BillingDetailsCopyWith<$Res>? get billingDetails;
+  $ShippingDetailsCopyWith<$Res>? get shippingDetails;
+}
+
+/// @nodoc
+class _$PaymentMethodDataPromptpayCopyWithImpl<$Res,
+        $Val extends PaymentMethodDataPromptpay>
+    implements $PaymentMethodDataPromptpayCopyWith<$Res> {
+  _$PaymentMethodDataPromptpayCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? token = null,
+    Object? billingDetails = freezed,
+    Object? shippingDetails = freezed,
+  }) {
+    return _then(_value.copyWith(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      billingDetails: freezed == billingDetails
+          ? _value.billingDetails
+          : billingDetails // ignore: cast_nullable_to_non_nullable
+              as BillingDetails?,
+      shippingDetails: freezed == shippingDetails
+          ? _value.shippingDetails
+          : shippingDetails // ignore: cast_nullable_to_non_nullable
+              as ShippingDetails?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BillingDetailsCopyWith<$Res>? get billingDetails {
+    if (_value.billingDetails == null) {
+      return null;
+    }
+
+    return $BillingDetailsCopyWith<$Res>(_value.billingDetails!, (value) {
+      return _then(_value.copyWith(billingDetails: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ShippingDetailsCopyWith<$Res>? get shippingDetails {
+    if (_value.shippingDetails == null) {
+      return null;
+    }
+
+    return $ShippingDetailsCopyWith<$Res>(_value.shippingDetails!, (value) {
+      return _then(_value.copyWith(shippingDetails: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_PaymentMethodDataPromptpayCopyWith<$Res>
+    implements $PaymentMethodDataPromptpayCopyWith<$Res> {
+  factory _$$_PaymentMethodDataPromptpayCopyWith(
+          _$_PaymentMethodDataPromptpay value,
+          $Res Function(_$_PaymentMethodDataPromptpay) then) =
+      __$$_PaymentMethodDataPromptpayCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String token,
+      BillingDetails? billingDetails,
+      ShippingDetails? shippingDetails});
+
+  @override
+  $BillingDetailsCopyWith<$Res>? get billingDetails;
+  @override
+  $ShippingDetailsCopyWith<$Res>? get shippingDetails;
+}
+
+/// @nodoc
+class __$$_PaymentMethodDataPromptpayCopyWithImpl<$Res>
+    extends _$PaymentMethodDataPromptpayCopyWithImpl<$Res,
+        _$_PaymentMethodDataPromptpay>
+    implements _$$_PaymentMethodDataPromptpayCopyWith<$Res> {
+  __$$_PaymentMethodDataPromptpayCopyWithImpl(
+      _$_PaymentMethodDataPromptpay _value,
+      $Res Function(_$_PaymentMethodDataPromptpay) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? token = null,
+    Object? billingDetails = freezed,
+    Object? shippingDetails = freezed,
+  }) {
+    return _then(_$_PaymentMethodDataPromptpay(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      billingDetails: freezed == billingDetails
+          ? _value.billingDetails
+          : billingDetails // ignore: cast_nullable_to_non_nullable
+              as BillingDetails?,
+      shippingDetails: freezed == shippingDetails
+          ? _value.shippingDetails
+          : shippingDetails // ignore: cast_nullable_to_non_nullable
+              as ShippingDetails?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_PaymentMethodDataPromptpay implements _PaymentMethodDataPromptpay {
+  const _$_PaymentMethodDataPromptpay(
+      {required this.token, this.billingDetails, this.shippingDetails});
+
+  factory _$_PaymentMethodDataPromptpay.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataPromptpayFromJson(json);
+
+  /// Token.
+  @override
+  final String token;
+
+  /// Billing information.
+  @override
+  final BillingDetails? billingDetails;
+
+  /// Shipping details
+  @override
+  final ShippingDetails? shippingDetails;
+
+  @override
+  String toString() {
+    return 'PaymentMethodDataPromptpay(token: $token, billingDetails: $billingDetails, shippingDetails: $shippingDetails)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PaymentMethodDataPromptpay &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.billingDetails, billingDetails) ||
+                other.billingDetails == billingDetails) &&
+            (identical(other.shippingDetails, shippingDetails) ||
+                other.shippingDetails == shippingDetails));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, token, billingDetails, shippingDetails);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PaymentMethodDataPromptpayCopyWith<_$_PaymentMethodDataPromptpay>
+      get copyWith => __$$_PaymentMethodDataPromptpayCopyWithImpl<
+          _$_PaymentMethodDataPromptpay>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PaymentMethodDataPromptpayToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PaymentMethodDataPromptpay
+    implements PaymentMethodDataPromptpay {
+  const factory _PaymentMethodDataPromptpay(
+      {required final String token,
+      final BillingDetails? billingDetails,
+      final ShippingDetails? shippingDetails}) = _$_PaymentMethodDataPromptpay;
+
+  factory _PaymentMethodDataPromptpay.fromJson(Map<String, dynamic> json) =
+      _$_PaymentMethodDataPromptpay.fromJson;
+
+  @override
+
+  /// Token.
+  String get token;
+  @override
+
+  /// Billing information.
+  BillingDetails? get billingDetails;
+  @override
+
+  /// Shipping details
+  ShippingDetails? get shippingDetails;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PaymentMethodDataPromptpayCopyWith<_$_PaymentMethodDataPromptpay>
       get copyWith => throw _privateConstructorUsedError;
 }
 

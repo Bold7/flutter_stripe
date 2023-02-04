@@ -65,6 +65,7 @@ const _$PaymentMethodTypeEnumMap = {
   PaymentMethodType.Upi: 'Upi',
   PaymentMethodType.USBankAccount: 'USBankAccount',
   PaymentMethodType.Unknown: 'Unknown',
+  PaymentMethodType.Promptpay: 'Promptpay',
 };
 
 _$_LastSetupError _$$_LastSetupErrorFromJson(Map<String, dynamic> json) =>

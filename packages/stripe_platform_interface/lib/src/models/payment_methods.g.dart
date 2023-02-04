@@ -209,6 +209,21 @@ const _$UsBankAccountTypeEnumMap = {
   UsBankAccountType.Unknown: 'Unknown',
 };
 
+_$_PaymentMethodParamsPromptpay _$$_PaymentMethodParamsPromptpayFromJson(
+        Map<String, dynamic> json) =>
+    _$_PaymentMethodParamsPromptpay(
+      paymentMethodData: PaymentMethodData.fromJson(
+          json['paymentMethodData'] as Map<String, dynamic>),
+      $type: json['paymentMethodType'] as String?,
+    );
+
+Map<String, dynamic> _$$_PaymentMethodParamsPromptpayToJson(
+        _$_PaymentMethodParamsPromptpay instance) =>
+    <String, dynamic>{
+      'paymentMethodData': instance.paymentMethodData.toJson(),
+      'paymentMethodType': instance.$type,
+    };
+
 _$_PaymentMethodParamsCard _$$_PaymentMethodParamsCardFromJson(
         Map<String, dynamic> json) =>
     _$_PaymentMethodParamsCard(
@@ -546,6 +561,28 @@ _$_PaymentMethodDataCardFromToken _$$_PaymentMethodDataCardFromTokenFromJson(
 
 Map<String, dynamic> _$$_PaymentMethodDataCardFromTokenToJson(
         _$_PaymentMethodDataCardFromToken instance) =>
+    <String, dynamic>{
+      'token': instance.token,
+      'billingDetails': instance.billingDetails?.toJson(),
+      'shippingDetails': instance.shippingDetails?.toJson(),
+    };
+
+_$_PaymentMethodDataPromptpay _$$_PaymentMethodDataPromptpayFromJson(
+        Map<String, dynamic> json) =>
+    _$_PaymentMethodDataPromptpay(
+      token: json['token'] as String,
+      billingDetails: json['billingDetails'] == null
+          ? null
+          : BillingDetails.fromJson(
+              json['billingDetails'] as Map<String, dynamic>),
+      shippingDetails: json['shippingDetails'] == null
+          ? null
+          : ShippingDetails.fromJson(
+              json['shippingDetails'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_PaymentMethodDataPromptpayToJson(
+        _$_PaymentMethodDataPromptpay instance) =>
     <String, dynamic>{
       'token': instance.token,
       'billingDetails': instance.billingDetails?.toJson(),
